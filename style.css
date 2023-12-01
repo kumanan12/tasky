@@ -32,7 +32,7 @@ main {
   padding: 1rem;
 }
 
-.navbar {
+.navbar-ty {
   position: fixed;
   background-color: var(--bg-primary);
   width: 16rem;
@@ -40,7 +40,7 @@ main {
   overflow: hidden;
 }
 
-.navbar-nav {
+.navbar-ty-nav {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -121,21 +121,21 @@ main {
 
 
 
-.navbar .link-text {
+.navbar-ty .link-text {
   display: inline;
 }
 
-.navbar .logo svg {
+.navbar-ty .logo svg {
   margin-left: 11rem;
 }
 
-.navbar .logo-text {
+.navbar-ty .logo-text {
   left: 0px;
 }
 
 /* Large screens */
 @media only screen and (min-width: 600px) {
-  .navbar .link-text {
+  .navbar-ty .link-text {
     display: inline;
   }
 }

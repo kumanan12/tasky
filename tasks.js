@@ -15,10 +15,28 @@ function displayTasksToCards() {
       taskString += `
         <div class="card mb-3">   
           <div class="card-body">
-            <h2 class="card-title">${task.name}</h2>
+          <div class="d-flex">
+          <h2 class="card-title p-2 w-100">${task.name}
+          </h2>
+          <button type="button" class="btn btn-outline-danger btn-md  flex-shrink-1 task-close-button">x</button>
+          </div>
             <div> Description: ${task.description}</div>
             <div> Assigned to: ${task.assignedTo}</div>
             <div> Status: ${task.status}</div>
+            <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+        Move to
+    </button>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#" data-status="assigned">Assigned</a></li>
+        <li><a class="dropdown-item" href="#" data-status="in-progress">In Progress</a></li>
+        <li><a class="dropdown-item" href="#" data-status="complete">Complete</a></li>
+    </ul>
+</div>
+
+            
+            
+            
           </div>
         </div>
       `;
@@ -36,3 +54,5 @@ function displayTasksToCards() {
 }
 
 displayTasksToCards();
+
+

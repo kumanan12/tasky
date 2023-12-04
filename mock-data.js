@@ -73,7 +73,7 @@ const dummyTasks = [
   },
   {
     assignedTo: "Krrithik",
-    status: "assigned",
+    status: "complete",
     name: "Task 13",
     description: "This is task 13",
   },
@@ -85,7 +85,7 @@ const dummyTasks = [
   },
   {
     assignedTo: "Bill",
-    status: "assigned",
+    status: "complete",
     name: "Task 15",
     description: "This is task 15",
   },
@@ -115,7 +115,7 @@ const dummyTasks = [
   },
   {
     assignedTo: "Bill",
-    status: "assigned",
+    status: "complete",
     name: "Task 20",
     description: "This is task 20",
   },

@@ -1,75 +1,38 @@
 function displayTasksToCards() {
+  const currentUser = getCurrentUser();
+
   let assignedTasksCard = document.getElementById("assignedTasks");
   let inProgressTasksCard = document.getElementById("inProgressTasks");
-  let completeTasksCard = document.getElementById("completedTasks")
+  let completeTasksCard = document.getElementById("completedTasks");
 
-  const currentUser = getCurrentUser();
-  let assignedTasksForCurrentUser = dummyTasks.filter((task) => {
-    return task.assignedTo === currentUser && task.status === "assigned";
-  });
-
-  let inProgressTasksForCurrentUser = dummyTasks.filter((task) => {
-    return task.assignedTo === currentUser && task.status === "in-progress";
-  });
-
-  let completeTasksForCurrentUser = dummyTasks.filter((task) => {
-    return task.assignedTo === currentUser && task.status === "complete";
-  });
-
-
-
-  let assignedTasksString = "";
-  for (const task of assignedTasksForCurrentUser) {
-    assignedTasksString += `
-        <div class="card mb-3">
-        <div class="card-body">
-        <h2 class="card-title">${task.name}</h2>
-        <div > Description : ${task.description}</div>
-        <div> Assigned to : ${task.assignedTo}</div>
-        <div> Status : ${task.status}</div>
-        </div>
-      </div>
-      </div>
-        `;
+  function filterTasks(statusOfTasks) {
+    return dummyTasks.filter((task) => task.assignedTo === currentUser && task.status === statusOfTasks);
   }
-  assignedTasksCard.innerHTML = assignedTasksString;
 
-  let inProgressTasksString = "";
-  for (const task of inProgressTasksForCurrentUser) {
-    inProgressTasksString += `
-        <div class="card mb-3">
-        <div class="card-body">
-        <h2 class="card-title">${task.name}</h2>
-        <div > Description : ${task.description}</div>
-        <div> Assigned to : ${task.assignedTo}</div>
-        <div> Status : ${task.status}</div>
+  function tasksStringTemplate(tasks) {
+    let taskString = '';
+    for (const task of tasks) {
+      taskString += `
+        <div class="card mb-3">   
+          <div class="card-body">
+            <h2 class="card-title">${task.name}</h2>
+            <div> Description: ${task.description}</div>
+            <div> Assigned to: ${task.assignedTo}</div>
+            <div> Status: ${task.status}</div>
+          </div>
         </div>
-      </div>
-      </div>
-        `;
+      `;
+    }
+    return taskString; // Return the concatenated taskString
   }
-  inProgressTasksCard.innerHTML = inProgressTasksString;
 
+  let assignedTasksForCurrentUser = filterTasks('assigned');
+  let inProgressTasksForCurrentUser = filterTasks('in-progress');
+  let completeTasksForCurrentUser = filterTasks('complete');
 
-  let completeTasksString = "";
-  for (const task of completeTasksForCurrentUser) {
-    completeTasksString += `
-        <div class="card mb-3">
-        <div class="card-body">
-        <h2 class="card-title">${task.name}</h2>
-        <div > Description : ${task.description}</div>
-        <div> Assigned to : ${task.assignedTo}</div>
-        <div> Status : ${task.status}</div>
-        </div>
-      </div>
-      </div>
-        `;
-  }
-  completeTasksCard.innerHTML = completeTasksString;
-
-  // get the assignd tasks card.
-  // loop through the dummyTasks array and create a card for each task
-  // assign the card to the assigned tasks card
+  assignedTasksCard.innerHTML = tasksStringTemplate(assignedTasksForCurrentUser);
+  inProgressTasksCard.innerHTML = tasksStringTemplate(inProgressTasksForCurrentUser);
+  completeTasksCard.innerHTML = tasksStringTemplate(completeTasksForCurrentUser);
 }
 
 displayTasksToCards();

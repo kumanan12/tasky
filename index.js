@@ -19,15 +19,3 @@ localStorage.setItem('name', 'Krrithik');
         status: 
     }
 */
-function changeUser() {
-    let name = document.getElementById('user').value;
-    localStorage.setItem('currentUser', name);
-    document.getElementById('currentUser').innerHTML = name;
-}
-
-function displayUser() {
-    let name = localStorage.getItem('currentUser');
-    document.getElementById('currentUser').innerHTML = name;
-}
-
-displayUser();

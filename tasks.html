@@ -41,10 +41,43 @@
     <main>
       <h1>Tasks</h1>
 
-      <p>
-       Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sed voluptatem deserunt quaerat aliquam earum, dolorem dolore repellat sint, reprehenderit optio, excepturi quae sequi! Dolore, non. Iusto amet nihil blanditiis.
-
-      </p>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Add Task</h5>
+                <p class="card-text">
+                  Add a new task to the list
+                </p>
+                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTaskModal">Add Task</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Edit Task</h5>
+                <p class="card-text">
+                  Edit an existing task
+                </p>
+                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editTaskModal">Edit Task</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Delete Task</h5>
+                <p class="card-text">
+                  Delete an existing task
+                </p>
+                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteTaskModal">Delete Task</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <script src="tasks.js"></script>

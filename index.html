@@ -42,8 +42,9 @@
 
     <main>
       <ul class="nav justify-content-end">
+        <li><div id="currentUser"></div></li>
         <li class="nav-item" style="width: 10rem">
-            <select class="form-select" aria-label="Default select example">
+            <select id="user" name="user" class="form-select" aria-label="Default select example" onchange="changeUser()">
                 <option selected>Select user</option>
                 <option value="Krrithik">Krrithik</option>
                 <option value="Steve">Steve</option>
@@ -53,15 +54,7 @@
       </ul>
       <h1>Task Management App</h1>
 
-      <p>
-        Hammock letterpress prism dreamcatcher truffaut shabby chic vice
-        cold-pressed. Franzen pug fashion axe before they sold out, tumblr irony
-        kogi actually af bushwick banh mi. Snackwave bicycle rights tofu
-        dreamcatcher tote bag pour-over meditation raw denim fanny pack. Pop-up
-        retro taiyaki meditation twee gastropub VHS etsy. Semiotics gochujang
-        street art normcore, edison bulb farm-to-table pour-over taxidermy
-        brooklyn.
-      </p>
+     
     </main>
 
     <script src="tasks.js"></script>

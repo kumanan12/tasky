@@ -143,6 +143,9 @@ const dummyTasks = [
 
 function displayTasks(userName) {
   const taskList = document.getElementById("taskList");
+  if (!taskList) {
+    return;
+  }
   let taskListString = "";
   const tasksByUser = dummyTasks.filter((task) => {
     return task.assignedTo === userName;

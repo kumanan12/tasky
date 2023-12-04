@@ -39,6 +39,17 @@
     </nav>
 
     <main>
+      <ul class="nav justify-content-end">
+        <li><div id="currentUser"></div></li>
+        <li class="nav-item" style="width: 10rem">
+            <select id="user" name="user" class="form-select" aria-label="Default select example" onchange="changeUser()">
+                <option selected>Select user</option>
+                <option value="Krrithik">Krrithik</option>
+                <option value="Steve">Steve</option>
+                <option value="Bill">Bill</option>
+              </select>
+        </li>
+      </ul>
       <h1>About Tasky</h1>
 
       <p>
@@ -48,5 +59,7 @@
 
     <script src="tasks.js"></script>
     <script src="index.js"></script>
+    <script src="./mock-data.js"></script>
+
   </body>
 </html>

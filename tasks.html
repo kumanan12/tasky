@@ -39,48 +39,76 @@
     </nav>
 
     <main>
+      <ul class="nav justify-content-end">
+        <li><div id="currentUser"></div></li>
+        <li class="nav-item" style="width: 10rem">
+            <select id="user" name="user" class="form-select" aria-label="Default select example" onchange="changeUser()">
+                <option selected>Select user</option>
+                <option value="Krrithik">Krrithik</option>
+                <option value="Steve">Steve</option>
+                <option value="Bill">Bill</option>
+              </select>
+        </li>
+      </ul>
       <h1>Tasks</h1>
-
-      <div class="container">
+      <div class="container container-body">
         <div class="row">
-          <div class="col-sm">
+          <div class="col">
+              <div class="card">
+                <h2 class="card-header">Assigned</h2>
+                <div class="card-body">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      name="input"
+                      class="form-control form-check-inline"
+                      id="todo"
+                    />
+                    <button id="submit">Add</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="col">
             <div class="card">
+              <h2 class="card-header">In Progress</h2>
               <div class="card-body">
-                <h5 class="card-title">Add Task</h5>
-                <p class="card-text">
-                  Add a new task to the list
-                </p>
-                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTaskModal">Add Task</a>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    name="input"
+                    class="form-control form-check-inline"
+                    id="todo"
+                  />
+                  <button id="submit">Add</button>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-sm">
+          <div class="col">
             <div class="card">
+              <h2 class="card-header">Complete</h2>
               <div class="card-body">
-                <h5 class="card-title">Edit Task</h5>
-                <p class="card-text">
-                  Edit an existing task
-                </p>
-                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editTaskModal">Edit Task</a>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    name="input"
+                    class="form-control form-check-inline"
+                    id="Doing"
+                  />
+                  <button id="submit ">Add</button>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-sm">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Delete Task</h5>
-                <p class="card-text">
-                  Delete an existing task
-                </p>
-                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteTaskModal">Delete Task</a>
-              </div>
-            </div>
-          </div>
+         
         </div>
       </div>
     </main>
 
     <script src="tasks.js"></script>
     <script src="index.js"></script>
+    <script src="./mock-data.js"></script>
+
   </body>
 </html>

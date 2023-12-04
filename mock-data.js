@@ -141,27 +141,7 @@ const dummyTasks = [
   },
 ];
 
-function displayTasks(userName) {
-  const taskList = document.getElementById("taskList");
-  if (!taskList) {
-    return;
-  }
-  let taskListString = "";
-  const tasksByUser = dummyTasks.filter((task) => {
-    return task.assignedTo === userName;
-  });
-  for (const task of tasksByUser) {
-    taskListString += `
-        <tr>
-            <td>${task.name}</td>
-            <td>${task.description}</td>
-            <td>${task.status}</td>
-            <td>${task.assignedTo}</td>
-        </tr>
-    `;
-  }
-  taskList.innerHTML = taskListString;
-}
+
 
 function changeUser() {
   let name = document.getElementById("user").value;

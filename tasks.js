@@ -6,11 +6,13 @@ function displayTasksToCards() {
   let completeTasksCard = document.getElementById("completedTasks");
 
   function filterTasks(statusOfTasks) {
-    return dummyTasks.filter((task) => task.assignedTo === currentUser && task.status === statusOfTasks);
+    return dummyTasks.filter(
+      (task) => task.assignedTo === currentUser && task.status === statusOfTasks
+    );
   }
 
-  function tasksStringTemplate(tasks) {
-    let taskString = '';
+  function getTaskTemplate(tasks) {
+    let taskString = "";
     for (const task of tasks) {
       taskString += `
         <div class="card mb-3">   
@@ -32,11 +34,7 @@ function displayTasksToCards() {
         <li><a class="dropdown-item" href="#" data-status="in-progress">In Progress</a></li>
         <li><a class="dropdown-item" href="#" data-status="complete">Complete</a></li>
     </ul>
-</div>
-
-            
-            
-            
+</div>  
           </div>
         </div>
       `;
@@ -44,15 +42,19 @@ function displayTasksToCards() {
     return taskString; // Return the concatenated taskString
   }
 
-  let assignedTasksForCurrentUser = filterTasks('assigned');
-  let inProgressTasksForCurrentUser = filterTasks('in-progress');
-  let completeTasksForCurrentUser = filterTasks('complete');
+  let assignedTasksForCurrentUser = filterTasks("assigned");
+  let inProgressTasksForCurrentUser = filterTasks("in-progress");
+  let completeTasksForCurrentUser = filterTasks("complete");
 
-  assignedTasksCard.innerHTML = tasksStringTemplate(assignedTasksForCurrentUser);
-  inProgressTasksCard.innerHTML = tasksStringTemplate(inProgressTasksForCurrentUser);
-  completeTasksCard.innerHTML = tasksStringTemplate(completeTasksForCurrentUser);
+  assignedTasksCard.innerHTML = getTaskTemplate(
+    assignedTasksForCurrentUser
+  );
+  inProgressTasksCard.innerHTML = getTaskTemplate(
+    inProgressTasksForCurrentUser
+  );
+  completeTasksCard.innerHTML = getTaskTemplate(
+    completeTasksForCurrentUser
+  );
 }
 
 displayTasksToCards();
-
-

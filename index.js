@@ -1,17 +1,16 @@
 
 
-let tasks = [];
+// let tasks = [];
 
-let task = {
-    assignedTo: 'Krrithik',
-    status: 'unassigned',
-    name: 'Sample Task',
-    description: 'This is a sample task'
-}
-tasks.push(task);
+// let task = {
+//     assignedTo: 'Krrithik',
+//     status: 'unassigned',
+//     name: 'Sample Task',
+//     description: 'This is a sample task'
+// }
+// tasks.push(task);
 
-localStorage.setItem('tasks', JSON.stringify(tasks));
-localStorage.setItem('name', 'Krrithik');
+// localStorage.setItem('tasks', JSON.stringify(tasks));
 
 
 function displayTasks(userName) {

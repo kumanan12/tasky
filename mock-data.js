@@ -148,6 +148,7 @@ function changeUser() {
   document.getElementById("currentUser").innerHTML = name;
   displayTasks(name);
   displayUserWithLabel(name);
+  location.reload();
 }
 
 function displayUser() {

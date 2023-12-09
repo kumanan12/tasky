@@ -51,6 +51,7 @@ function displayTasksToCards() {
   let assignedTasksCard = document.getElementById("assignedTasks");
   let inProgressTasksCard = document.getElementById("inProgressTasks");
   let completeTasksCard = document.getElementById("completedTasks");
+
   let assignedTasksForCurrentUser = filterTasks("assigned");
   let inProgressTasksForCurrentUser = filterTasks("in-progress");
   let completeTasksForCurrentUser = filterTasks("complete");
@@ -64,21 +65,7 @@ function displayTasksToCards() {
 }
 
 function saveTask() {
-  let taskName = document.getElementById("taskName").value;
-  let taskDescription = document.getElementById("taskDescription").value;
-  let taskAssignedTo = document.getElementById("taskAssignedTo").value;
-  let taskStatus = document.getElementById("taskStatus").value;
-  let taskId = document.getElementById("taskId").value;
-  let task = {
-    name: taskName,
-    description: taskDescription,
-    assignedTo: taskAssignedTo,
-    status: taskStatus,
-    id: taskId,
-  };
-  let index = dummyTasks.findIndex((task) => task.id === taskId);
-  dummyTasks[index] = task;
-  localStorage.setItem("tasks", JSON.stringify(dummyTasks));
+ 
   displayTasksToCards();
 }
 

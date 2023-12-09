@@ -142,37 +142,6 @@ const dummyTasks = [
   },
 ];
 
-function changeUser() {
-  let name = document.getElementById("user").value;
-  localStorage.setItem("currentUser", name);
-  document.getElementById("currentUser").innerHTML = name;
-  displayTasks(name);
-  displayUserWithLabel(name);
-  location.reload();
-}
 
-function displayUser() {
-  let name = getCurrentUser();
-  let userDropDown = document.getElementById("user");
-  userDropDown.value = name;
-  displayTasks(name);
-  displayUserWithLabel(name);
-}
 
-function displayUserWithLabel(name) {
-  let label = "";
-  if (name == "Krrithik") {
-    label = `Logged in as ${name}. Role: Admin`;
-  } else {
-    label = `Logged in as ${name}. Role: Standard User`;
-  }
-  document.getElementById("currentUser").innerHTML = label;
-}
-
-function getCurrentUser() {
-  let name = localStorage.getItem("currentUser");
-  return name;
-}
-
-displayUser();
 

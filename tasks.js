@@ -1,10 +1,62 @@
+//show add task only to admin
+function displayAddTaskButton() {
+  const currentUser = getCurrentUser();
+  const addTaskBtn = document.getElementById("addTaskBtn");
+  if (currentUser === "Krrithik") {
+    addTaskBtn.style.display = "";
+    return;
+  }
+  addTaskBtn.style.display = "none";
+}
+function changeUser() {
+  let name = document.getElementById("user").value;
+  localStorage.setItem("currentUser", name);
+  document.getElementById("currentUser").innerHTML = name;
+  displayUserWithLabel(name);
+  displayAddTaskButton();
+  displayTasksToCards();
+}
+
+function displayUser() {
+  let name = getCurrentUser();
+  let userDropDown = document.getElementById("user");
+  userDropDown.value = name;
+  displayTaskTable(name);
+  displayUserWithLabel(name);
+}
+
+function displayUserWithLabel(name) {
+  let label = "";
+  if (name == "Krrithik") {
+    label = `Logged in as ${name}. Role: Admin`;
+  } else {
+    label = `Logged in as ${name}. Role: Standard User`;
+  }
+  document.getElementById("currentUser").innerHTML = label;
+}
+
+function getCurrentUser() {
+  let name = localStorage.getItem("currentUser");
+  return name;
+}
+
+function addTask(){
+  var myModal = new bootstrap.Modal(
+    document.getElementById("newTaskModal"),
+    {}
+  );
+  myModal.show();
+}
+
+
 function addEditTaskListener() {
+  let tasks = getTasksFromStorage();
   let editTaskButtons = document.querySelectorAll(".editTask");
   for (const button of editTaskButtons) {
     button.addEventListener("click", function () {
       let taskId = button.getAttribute("data-id");
       console.log(taskId);
-      let task = dummyTasks.find((task) => task.id === taskId);
+      let task = tasks.find((task) => task.id === taskId);
       document.getElementById("taskName").value = task.name;
       document.getElementById("taskDescription").value = task.description;
       document.getElementById("taskAssignedTo").value = task.assignedTo;
@@ -42,8 +94,9 @@ function getTaskTemplate(tasks) {
 }
 
 function filterTasks(statusOfTasks) {
+  let tasks = getTasksFromStorage();
   const currentUser = getCurrentUser();
-  return dummyTasks.filter(
+  return tasks.filter(
     (task) => task.assignedTo === currentUser && task.status === statusOfTasks
   );
 }
@@ -65,7 +118,27 @@ function displayTasksToCards() {
   addEditTaskListener();
 }
 
+function addNewTask(){
+  let tasks = getTasksFromStorage();
+  let taskName = document.getElementById("newTaskName").value;
+  let taskDescription = document.getElementById("newTaskDescription").value;
+  let taskAssignedTo = document.getElementById("newTaskAssignedTo").value;
+  let taskStatus = document.getElementById("newTaskStatus").value;
+  let taskId = crypto.randomUUID();
+  let newTask = {
+    name: taskName,
+    description: taskDescription,
+    status: taskStatus,
+    assignedTo: taskAssignedTo,
+    id: taskId,
+  };
+  tasks.push(newTask);
+  saveTasksToStorage(tasks);
+
+}
+
 function saveTask() {
+  let tasks = getTasksFromStorage();
   let taskName = document.getElementById("taskName").value;
   let taskDescription = document.getElementById("taskDescription").value;
   let taskAssignedTo = document.getElementById("taskAssignedTo").value;
@@ -80,10 +153,10 @@ function saveTask() {
     id: taskId,
   };
 
-  let taskIndex = dummyTasks.findIndex((x) => x.id === taskId);
-  dummyTasks[taskIndex] = editedTask;
-
+  let taskIndex = tasks.findIndex((x) => x.id === taskId);
+  tasks[taskIndex] = editedTask;
+  saveTasksToStorage(tasks);
   displayTasksToCards();
 }
-
+displayUser();
 displayTasksToCards();

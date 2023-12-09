@@ -1,29 +1,19 @@
-let tasks = [];
 
-let task = {
-  assignedTo: "Krrithik",
-  status: "unassigned",
-  name: "Sample Task",
-  description: "This is a sample task",
-};
-tasks.push(task);
+function displayTaskTable(userName) {
+  const tasks = getTasksFromStorage();
 
-localStorage.setItem("tasks", JSON.stringify(tasks));
-localStorage.setItem("name", "Krrithik");
-
-function displayTasks(userName) {
   const taskList = document.getElementById("taskList");
   if (!taskList) {
     return;
   }
   let taskListString = "";
   let tasksByUser = null;
-  if (getCurrentUser() === 'Krrithik')  {
-    tasksByUser = dummyTasks;
-  }else {
-    tasksByUser = dummyTasks.filter((task) => {
+  if (getCurrentUser() === "Krrithik") {
+    tasksByUser = tasks;
+  } else {
+    tasksByUser = tasks.filter((task) => {
       return task.assignedTo === userName;
-  });
+    });
   }
 
   for (const task of tasksByUser) {
@@ -37,4 +27,12 @@ function displayTasks(userName) {
       `;
   }
   taskList.innerHTML = taskListString;
+}
+
+function changeUser() {
+  let name = document.getElementById("user").value;
+  localStorage.setItem("currentUser", name);
+  document.getElementById("currentUser").innerHTML = name;
+  displayTaskTable(name);
+  displayUserWithLabel(name);
 }

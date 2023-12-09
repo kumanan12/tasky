@@ -24,7 +24,7 @@ const dummyTasks = [
     assignedTo: "Bill",
     status: "assigned",
     name: "Task 4 for Bill",
-    description: "This is task 4",
+    description: "This is task 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur, voluptates, voluptatum inventore numquam nobis debitis quos eum veritatis reiciendis alias sit sed consequuntur libero exercitationem commodi, magni necessitatibus quidem?", 
     id: "435dda9d-28f4-4754-a27d-2937ca46ddf2",
   },
   {

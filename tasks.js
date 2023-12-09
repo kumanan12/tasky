@@ -67,8 +67,8 @@ function displayTasksToCards() {
 }
 
 function saveTask() {
-  
- 
+
+
   displayTasksToCards();
 }
 

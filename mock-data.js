@@ -24,7 +24,8 @@ const dummyTasks = [
     assignedTo: "Bill",
     status: "assigned",
     name: "Task 4 for Bill",
-    description: "This is task 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur, voluptates, voluptatum inventore numquam nobis debitis quos eum veritatis reiciendis alias sit sed consequuntur libero exercitationem commodi, magni necessitatibus quidem?", 
+    description:
+      "This is task 4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur, voluptates, voluptatum inventore numquam nobis debitis quos eum veritatis reiciendis alias sit sed consequuntur libero exercitationem commodi, magni necessitatibus quidem?",
     id: "435dda9d-28f4-4754-a27d-2937ca46ddf2",
   },
   {
@@ -68,7 +69,6 @@ const dummyTasks = [
     name: "Task 10",
     description: "This is task 10",
     id: "52792c80-90c1-4397-8729-d4a0c63345ec",
-    
   },
   {
     assignedTo: "Bill",
@@ -175,3 +175,4 @@ function getCurrentUser() {
 }
 
 displayUser();
+

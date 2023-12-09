@@ -17,13 +17,15 @@ function displayTasks(userName) {
     return;
   }
   let taskListString = "";
-  const tasksByUser = dummyTasks.filter((task) => {
-    if (userName === "Krrithik") {
-      return task.assignedTo;
-    } else {
+  let tasksByUser = null;
+  if (getCurrentUser() === 'Krrithik')  {
+    tasksByUser = dummyTasks;
+  }else {
+    tasksByUser = dummyTasks.filter((task) => {
       return task.assignedTo === userName;
-    }
   });
+  }
+
   for (const task of tasksByUser) {
     taskListString += `
           <tr>

@@ -2,8 +2,8 @@ function addEditTaskListener() {
   let editTaskButtons = document.querySelectorAll(".editTask");
   for (const button of editTaskButtons) {
     button.addEventListener("click", function () {
-      let taskId = button.getAttribute("data-id")
-      console.log(taskId);;
+      let taskId = button.getAttribute("data-id");
+      console.log(taskId);
       let task = dummyTasks.find((task) => task.id === taskId);
       document.getElementById("taskName").value = task.name;
       document.getElementById("taskDescription").value = task.description;
@@ -17,7 +17,6 @@ function addEditTaskListener() {
       myModal.show();
     });
   }
- 
 }
 
 function getTaskTemplate(tasks) {
@@ -44,10 +43,10 @@ function getTaskTemplate(tasks) {
 
 function filterTasks(statusOfTasks) {
   const currentUser = getCurrentUser();
-    return dummyTasks.filter(
-      (task) => task.assignedTo === currentUser && task.status === statusOfTasks
-    );
-  }
+  return dummyTasks.filter(
+    (task) => task.assignedTo === currentUser && task.status === statusOfTasks
+  );
+}
 
 function displayTasksToCards() {
   let assignedTasksCard = document.getElementById("assignedTasks");
@@ -67,7 +66,22 @@ function displayTasksToCards() {
 }
 
 function saveTask() {
+  let taskName = document.getElementById("taskName").value;
+  let taskDescription = document.getElementById("taskDescription").value;
+  let taskAssignedTo = document.getElementById("taskAssignedTo").value;
+  let taskStatus = document.getElementById("taskStatus").value;
+  let taskId = document.getElementById("taskId").value;
 
+  let editedTask = {
+    name: taskName,
+    description: taskDescription,
+    status: taskStatus,
+    assignedTo: taskAssignedTo,
+    id: taskId,
+  };
+
+  let taskIndex = dummyTasks.findIndex((x) => x.id === taskId);
+  dummyTasks[taskIndex] = editedTask;
 
   displayTasksToCards();
 }

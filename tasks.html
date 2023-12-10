@@ -110,8 +110,8 @@
         <div class="modal-body">
           <form>
             <div class="mb-3 form-group">
-              <label for="taskName" class="col-form-label">Task Name :</label>
-              <input type="text" class="form-control" id="taskName">
+              <label for="taskName" class="col-form-label" >Task Name :</label>
+              <input type="text" class="form-control" id="taskName" disabled>
             </div>
             <div class="mb-3 form-group">
               <label for="taskDescription" class="col-form-label">Description :</label>
@@ -119,11 +119,17 @@
             </div>
             <div class="mb-3 form-group">
               <label for="taskAssignedTo" class="col-form-label">Assigned to :</label>
-              <input type="text" class="form-control" id="taskAssignedTo">
+              <input type="text" class="form-control" id="taskAssignedTo" disabled>
             </div>
             <div class="mb-3 form-group">
               <label for="taskStatus" class="col-form-label">Status :</label>
-              <input type="text" class="form-control" id="taskStatus">
+              <!-- <input type="text" class="form-control" id="taskStatus"> -->
+              <select class="form-select" id="taskStatus">
+                <option selected>Edit status</option>
+                <option value="assigned">Assigned</option>
+                <option value="in-progress">In-Progress</option>
+                <option value="complete">Complete</option>
+              </select>
             </div>
             <input type="hidden" id="taskId">
           </form>
@@ -157,11 +163,23 @@
             </div>
             <div class="mb-3 form-group">
               <label for="newTaskAssignedTo" class="col-form-label">Assigned to :</label>
-              <input type="text" class="form-control" id="newTaskAssignedTo">
+             <!--  <input type="text" class="form-control" id="newTaskAssignedTo"> -->
+             <select class="form-select" id="newTaskAssignedTo">
+              <option selected>Assign to user</option>
+              <option value="Krrithik">Krrithik</option>
+              <option value="Steve">Steve</option>
+              <option value="Bill">Bill</option>
+            </select>
             </div>
             <div class="mb-3 form-group">
               <label for="newTaskStatus" class="col-form-label">Status :</label>
-              <input type="text" class="form-control" id="newTaskStatus">
+             <!--  <input type="text" class="form-control" id="newTaskStatus"> -->
+             <select class="form-select"  id="newTaskStatus">
+              <option selected>Choose status</option>
+              <option value="assigned">Assigned</option>
+              <option value="in-progress">In-Progress</option>
+              <option value="complete">Complete</option>
+            </select>
             </div>
           </form>
         </div>

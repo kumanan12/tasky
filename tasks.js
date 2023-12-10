@@ -84,8 +84,9 @@ function getTaskTemplate(tasks) {
           </div>
             <div> Description: ${task.description}</div>
             <div> Assigned to: ${task.assignedTo}</div>
-            <div> Status: ${task.status}</div>
+            <div class="mb-3"> Status: ${task.status}</div>
            <button type="button" class="btn btn-outline-success btn-md editTask" data-id="${task.id}">Edit</button>
+           <button type="button" class="btn btn-outline-danger btn-md Remove">Remove</button>
           </div>
         </div>
       `;

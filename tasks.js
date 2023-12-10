@@ -81,7 +81,7 @@ function getTaskTemplate(tasks) {
   let taskString = "";
   for (const task of tasks) {
     taskString += `
-        <div class="card mb-3">   
+        <div class="card mb-3 js-cards">   
           <div class="card-body">
           <div class="d-flex">
           <h2 class="card-title p-2 w-100">${task.name}

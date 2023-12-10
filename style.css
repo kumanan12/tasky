@@ -100,7 +100,7 @@ main {
   display: inline;
 }
 
-.navbar-ty . svg {
+.navbar-ty .svg {
   margin-left: 11rem;
 }
 
@@ -132,4 +132,10 @@ main {
  /* background-image: linear-gradient(-225deg, #FFFEFF 0%, #c0e7ff 100%); */
  background-color: #F0F8FF;
   
+}
+
+.outer-card {
+ /*  border: 1px solid black; */
+  background-color: #b9d9eb;
+  height: 75vh;
 }

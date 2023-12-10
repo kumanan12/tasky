@@ -1,7 +1,5 @@
-//show add task only to admin
-function displayAddTaskButton() {
+function disableEditButtonForNonAdmins() {
   const currentUser = getCurrentUser();
-  const addTaskBtn = document.getElementById("addTaskBtn");
   let disableTaskName = document.getElementById("taskName");
   let disableTaskAssignedTo = document.getElementById("taskAssignedTo");
   if (currentUser === "Krrithik") {
@@ -10,9 +8,19 @@ function displayAddTaskButton() {
     disableTaskAssignedTo.disabled = false;
     return;
   }
-  addTaskBtn.style.display = "none";
   disableTaskName.disabled = true;
   disableTaskAssignedTo.disabled = true;
+}
+
+//show add task only to admin
+function displayAddTaskButton() {
+  const currentUser = getCurrentUser();
+  const addTaskBtn = document.getElementById("addTaskBtn");
+  if (currentUser === "Krrithik") {
+    addTaskBtn.style.display = "";
+    return;
+  }
+  addTaskBtn.style.display = "none";
 }
 function changeUser() {
   let name = document.getElementById("user").value;
@@ -46,14 +54,13 @@ function getCurrentUser() {
   return name;
 }
 
-function addTask(){
+function addTask() {
   var myModal = new bootstrap.Modal(
     document.getElementById("newTaskModal"),
     {}
   );
   myModal.show();
 }
-
 
 function addEditTaskListener() {
   let tasks = getTasksFromStorage();
@@ -75,6 +82,16 @@ function addEditTaskListener() {
       myModal.show();
     });
   }
+  disableEditButtonForNonAdmins();
+}
+
+function removeTask(taskId) {
+  let tasks = getTasksFromStorage();
+  let filteredTasks = tasks.filter(task => {
+    return task.id!==taskId;
+  });
+  saveTasksToStorage(filteredTasks);
+  displayTasksToCards();
 }
 
 function getTaskTemplate(tasks) {
@@ -92,7 +109,7 @@ function getTaskTemplate(tasks) {
             <div> Assigned to: ${task.assignedTo}</div>
             <div class="mb-3"> Status: ${task.status}</div>
            <button type="button" class="btn btn-outline-success btn-md editTask" data-id="${task.id}">Edit</button>
-           <button type="button" class="btn btn-outline-danger btn-md Remove">Remove</button>
+           <button onclick="removeTask('${task.id}')" type="button" class="btn btn-outline-danger btn-md Remove">Remove</button>
           </div>
         </div>
       `;
@@ -125,7 +142,7 @@ function displayTasksToCards() {
   addEditTaskListener();
 }
 
-function addNewTask(){
+function addNewTask() {
   let tasks = getTasksFromStorage();
   let taskName = document.getElementById("newTaskName").value;
   let taskDescription = document.getElementById("newTaskDescription").value;
@@ -141,7 +158,7 @@ function addNewTask(){
   };
   tasks.push(newTask);
   saveTasksToStorage(tasks);
-
+  displayTasksToCards();
 }
 
 function saveTask() {

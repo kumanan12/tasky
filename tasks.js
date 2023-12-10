@@ -2,14 +2,17 @@
 function displayAddTaskButton() {
   const currentUser = getCurrentUser();
   const addTaskBtn = document.getElementById("addTaskBtn");
-  let disableTaskName = document.getElementById("taskName")
+  let disableTaskName = document.getElementById("taskName");
+  let disableTaskAssignedTo = document.getElementById("taskAssignedTo");
   if (currentUser === "Krrithik") {
     addTaskBtn.style.display = "";
     disableTaskName.disabled = false;
+    disableTaskAssignedTo.disabled = false;
     return;
   }
   addTaskBtn.style.display = "none";
   disableTaskName.disabled = true;
+  disableTaskAssignedTo.disabled = true;
 }
 function changeUser() {
   let name = document.getElementById("user").value;

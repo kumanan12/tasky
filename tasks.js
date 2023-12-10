@@ -2,11 +2,14 @@
 function displayAddTaskButton() {
   const currentUser = getCurrentUser();
   const addTaskBtn = document.getElementById("addTaskBtn");
+  let disableTaskName = document.getElementById("taskName")
   if (currentUser === "Krrithik") {
     addTaskBtn.style.display = "";
+    disableTaskName.disabled = false;
     return;
   }
   addTaskBtn.style.display = "none";
+  disableTaskName.disabled = true;
 }
 function changeUser() {
   let name = document.getElementById("user").value;

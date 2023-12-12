@@ -103,11 +103,10 @@ function getTaskTemplate(tasks) {
           <div class="d-flex">
           <h2 class="card-title p-2 w-100">${task.name}
           </h2>
-          <button type="button" class="btn btn-outline-danger btn-md  flex-shrink-1 task-close-button">x</button>
           </div>
-            <div> Description: ${task.description}</div>
-            <div> Assigned to: ${task.assignedTo}</div>
-            <div class="mb-3"> Status: ${task.status}</div>
+            <div><span class="js-cards-sub"> Description:</span> ${task.description}</div>
+            <div><span class="js-cards-sub">  Assigned to:</span> ${task.assignedTo}</div>
+            <div class="mb-3"> <span class="js-cards-sub"> Status:</span> ${task.status}</div>
            <button type="button" class="btn btn-outline-success btn-md editTask" data-id="${task.id}">Edit</button>
            <button onclick="removeTask('${task.id}')" type="button" class="btn btn-outline-danger btn-md Remove">Remove</button>
           </div>

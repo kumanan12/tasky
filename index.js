@@ -18,7 +18,7 @@ function displayTaskTable(userName) {
 
   for (const task of tasksByUser) {
     taskListString += `
-          <tr>
+          <tr class="table-primary">
               <td>${task.name}</td>
               <td>${task.description}</td>
               <td>${task.status}</td>

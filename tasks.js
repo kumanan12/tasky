@@ -42,9 +42,9 @@ function displayUser() {
 function displayUserWithLabel(name) {
   let label = "";
   if (name == "Krrithik") {
-    label = `Logged in as ${name}. Role: Admin`;
+    label = `Logged in as ${name}.<br> Role: Admin`;
   } else {
-    label = `Logged in as ${name}. Role: Standard User`;
+    label = `Logged in as ${name}.<br> Role: Standard User`;
   }
   document.getElementById("currentUser").innerHTML = label;
 }

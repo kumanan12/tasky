@@ -39,20 +39,9 @@ function displayUser() {
   displayUserWithLabel(name);
 }
 
-function displayUserWithLabel(name) {
-  let label = "";
-  if (name == "Krrithik") {
-    label = `Logged in as ${name}.<br> Role: Admin`;
-  } else {
-    label = `Logged in as ${name}.<br> Role: Standard User`;
-  }
-  document.getElementById("currentUser").innerHTML = label;
-}
 
-function getCurrentUser() {
-  let name = localStorage.getItem("currentUser");
-  return name;
-}
+
+
 
 function addTask() {
   var myModal = new bootstrap.Modal(
@@ -158,6 +147,15 @@ function addNewTask() {
   tasks.push(newTask);
   saveTasksToStorage(tasks);
   displayTasksToCards();
+  resetModal();
+
+}
+
+function resetModal(){
+  document.getElementById("newTaskName").value=''
+  document.getElementById("newTaskDescription").value='';
+  document.getElementById("newTaskAssignedTo").value ='';
+  document.getElementById("newTaskStatus").value=''
 }
 
 function saveTask() {
@@ -183,3 +181,4 @@ function saveTask() {
 }
 displayUser();
 displayTasksToCards();
+displayAddTaskButton();
